@@ -2,18 +2,22 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+public class Main
+    {
 
-    static class Book {
+    static class Book 
+    {
         private String title;
         private String author;
 
-        public Book(String title, String author) {
+        public Book(String title, String author) 
+        {
             this.title = title;
             this.author = author;
         }
 
-        public String getTitle() {
+        public String getTitle()
+        {
             return title;
         }
     }
@@ -26,7 +30,8 @@ public class Main {
         private String phone;
 
         public Reader(String fullName, String ticketNumber, String faculty,
-                      String birthDate, String phone) {
+                      String birthDate, String phone)
+        {
             this.fullName = fullName;
             this.ticketNumber = ticketNumber;
             this.faculty = faculty;
@@ -34,16 +39,19 @@ public class Main {
             this.phone = phone;
         }
 
-        public void takeBook(int count) {
+        public void takeBook(int count)
+        {
             System.out.println(fullName + " взяв " + count + " книги.");
         }
 
-        public void takeBook(String... books) {
+        public void takeBook(String... books) 
+        {
             System.out.print(fullName + " взяв книги: ");
             System.out.println(String.join(", ", books));
         }
 
-        public void takeBook(Book... books) {
+        public void takeBook(Book... books)
+        {
             System.out.print(fullName + " взяв книги: ");
             List<String> titles = new ArrayList<>();
             for (Book b : books) {
@@ -52,33 +60,39 @@ public class Main {
             System.out.println(String.join(", ", titles));
         }
 
-        public void returnBook(int count) {
+        public void returnBook(int count) 
+        {
             System.out.println(fullName + " повернув " + count + " книги.");
         }
 
-        public void returnBook(String... books) {
+        public void returnBook(String... books)
+        {
             System.out.print(fullName + " повернув книги: ");
             System.out.println(String.join(", ", books));
         }
 
-        public void returnBook(Book... books) {
+        public void returnBook(Book... books)
+        {
             System.out.print(fullName + " повернув книги: ");
             List<String> titles = new ArrayList<>();
-            for (Book b : books) {
+            for (Book b : books)
+                {
                 titles.add(b.getTitle());
             }
             System.out.println(String.join(", ", titles));
         }
 
         @Override
-        public String toString() {
+        public String toString() 
+        {
             return fullName + ", " + ticketNumber + ", " + faculty + ", "
                     + birthDate + ", " + phone;
         }
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+        {
 
         Reader[] readers = {
                 new Reader("Петров В. В.", "12345", "ФІТ", "12.03.2000", "0661234567"),
@@ -103,7 +117,8 @@ public class Main {
             readerInfo.add(r.toString());
         }
 
-        try (PrintWriter writer = new PrintWriter("readers.txt")) {
+        try (PrintWriter writer = new PrintWriter("readers.txt"))
+            {
             for (String info : readerInfo) {
                 writer.println(info);
             }
